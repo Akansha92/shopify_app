@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annalia Beauty | Luxury Skincare & Haircare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf6f0;
+      color: #333;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #e3a0b5, #f2c8b9);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 50px;  /* Adjusted font size */
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-family: 'Playfair Display', serif;
+      color: #e17d91;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    nav ul li a {
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #e17d91;
+    }
+
+    nav .search-bar {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    nav .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    nav .cart {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav .cart span {
+      font-size: 14px;
+      background: #e17d91;
+      color: white;
+      border-radius: 50%;
+      padding: 5px 10px;
+    }
+
+    .auth-links {
+      display: flex;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    .auth-links a {
+      color: #e17d91;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin: 30px auto;
+      padding: 100px 20px;
+      background: url('images/hero-banner.jpg') no-repeat center/cover;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      font-size: 18px;
+      color: white;
+      background: #e17d91;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #c64a70;
+    }
+
+    /* Products Section */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card h4 {
+      margin: 15px 0 10px;
+      font-size: 18px;
+    }
+
+    .product-card button {
+      padding: 10px 15px;
+      background: #e17d91;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .product-card button:hover {
+      background: #c64a70;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    footer ul li {
+      font-size: 14px;
+    }
+
+    /* Heading styles for centering and responsive font sizing */
+    h2, h3 {
+      text-align: center;
+      color: #333; /* Dark color for better visibility */
+      font-size: 28px; /* Adjusted font size for consistency */
+      margin: 20px 0;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 36px; /* Larger font size for main section heading */
+      font-family: 'Playfair Display', serif;
+      color: #e17d91;
+    }
+
+    h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* New Sections */
+    .testimonials {
+      background: #f7f2f0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .testimonials .testimonial {
+      margin: 20px auto;
+      max-width: 600px;
+      font-style: italic;
+    }
+
+    .newsletter {
+      background: #e3a0b5;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .newsletter input {
+      padding: 10px;
+      width: 300px;
+      max-width: 80%;
+      border: none;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background: white;
+      color: #e17d91;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter button:hover {
+      background: #c64a70;
+      color: white;
+    }
+
+    .special-offers {
+      background: #fdf6f0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .special-offers .offer {
+      margin: 20px auto;
+      max-width: 700px;
+      border: 2px solid #e3a0b5;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Annalia Beauty</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products...">
+    </div>
+    <div class="auth-links">
+      <a href="#login">Login</a>
+      <a href="#signup">Sign Up</a>
+    </div>
+    <div class="cart">
+      <span>3</span>
+      <img src="images/cart-icon.png" alt="Cart" width="24">
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Luxury Skincare & Haircare</h1>
+    <p>Transform your beauty routine with our premium products.</p>
+    <button>Shop Now</button>
+  </header>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Shop Our Collections</h2>
+
+    <!-- Skincare Section -->
+    <h3>Skincare</h3>
+    <div class="products">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="images/anti-aging-cream.jpg" alt="Anti-Aging Cream">
+        <h4>Anti-Aging Cream</h4>
+        <p>$25.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="images/hydrating-mask.jpg" alt="Hydrating Mask">
+        <h4>Hydrating Mask</h4>
+        <p>$18.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum">
+        <h4>Vitamin C Serum</h4>
+        <p>$29.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="images/rose-water-toner.jpg" alt="Rose Water Toner">
+        <h4>Rose Water Toner</h4>
+        <p>$15.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 5 -->
+      <div class="product-card">
+        <img src="images/brightening-serum.jpg" alt="Brightening Serum">
+        <h4>Brightening Serum</h4>
+        <p>$22.99</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Haircare Section -->
+    <h3>Haircare</h3>
+    <div class="products">
+      <!-- Product 6 -->
+      <div class="product-card">
+        <img src="images/argan-oil.jpg" alt="Organic Argan Oil">
+        <h4>Organic Argan Oil</h4>
+        <p>$19.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 7 -->
+      <div class="product-card">
+        <img src="images/charcoal-face-mask.jpg" alt="Charcoal Face Mask">
+        <h4>Charcoal Face Mask</h4>
+        <p>$12.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img src="images/body-lotion.jpg" alt="Moisturizing Body Lotion">
+        <h4>Moisturizing Body Lotion</h4>
+        <p>$14.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 9 -->
+      <div class="product-card">
+        <img src="images/shampoo.jpg" alt="Keratin Shampoo">
+        <h4>Keratin Shampoo</h4>
+        <p>$11.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Product 10 -->
+      <div class="product-card">
+        <img src="images/hairmask.jpg" alt="Deep Conditioning Hair Mask">
+        <h4>Deep Conditioning Hair Mask</h4>
+        <p>$16.99</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"Annalia Beauty has transformed my skincare routine! The products are amazing, and my skin feels so soft and rejuvenated." - Sarah T.</p>
+    </div>
+    <div class="testimonial">
+      <p>"I love the haircare collection! The keratin shampoo and deep conditioning hair mask are game changers." - Alex R.</p>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter to receive exclusive offers and beauty tips.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </section>
+
+  <!-- Special Offers Section -->
+  <section class="special-offers">
+    <h2>Special Offers</h2>
+    <div class="offer">
+      <p>Get 20% off on your first order! Use code: WELCOME20</p>
+    </div>
+    <div class="offer">
+      <p>Buy 2, Get 1 Free on all skincare products!</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+  <li><a href="#">FAQ</a></li>
+  <li><a href="#">Contact Us</a></li>
+</ul>
+<p>&copy; 2025 Annalia Beauty. All rights reserved.</p>
+<p>Follow us on:
+  <a href="#">Facebook</a> |
+  <a href="#">Instagram</a> |
+  <a href="#">Twitter</a>
+</p>
+</footer>
+
